@@ -1,0 +1,23 @@
+div.suggestionList {
+	z-index:500;
+	position:absolute;
+	width:150px;
+	border:1px solid #333333;
+	background-color:#ffffff;
+	font-family:Tahoma;
+	font-size:11px;
+	cursor:default;
+	visibility:hidden;
+}
+div.suggestionList_element_off {
+	width: 148px;
+	background: #ffffff;
+	color: #333333;
+	padding-left: 2px;
+}
+div.suggestionList_element_on {
+	width: 148px;
+	background: #6D99C6;
+	color: #ffffff;
+	padding-left: 2px;
+}

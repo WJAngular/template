@@ -1,0 +1,99 @@
+$(function(){
+	searchRecord();
+	
+	// 新增按钮事件
+	$("#add_show_btn").click(function(){
+		add();
+		clsModifyForm();  
+		showModifyDiv();
+	});
+});
+
+/** 执行查询 */
+function searchRecord(){
+	var sendData = {
+#foreach($column in $tableInfo.otherColumn)
+		${column.javaName}:$("#search${column.firstUpperName}").val(),
+#end
+	};
+	$("#table_list").sgfmtable({url:ctx+'/${tableInfo.firstLowerName}/list.do',
+	params:sendData,
+	"ajaxtype":"post",
+	pagenoname:"pageNo",
+	isaddrow:true,
+	"rowClickCallback":function(data,td){
+	}},function(){
+	});
+}
+
+/** 执行新增 */
+function add(){
+	$("#modifyForm").sgfmform({
+		ajaxurl:ctx+"/${tableInfo.firstLowerName}/add.do",
+		submittype:2,
+		tiptype:1,
+		callback:function(data,url){
+			operationTips("add","新增",data.returncode);
+		}
+	});
+}
+
+/** 执行修改 */
+function modify(){
+	$("#modifyForm").sgfmform({
+		ajaxurl:ctx+"/${tableInfo.firstLowerName}/update.do",
+		submittype:2,
+		tiptype:1,
+		callback:function(data,url){
+			operationTips("update","修改",data.returncode);
+		}
+	});
+}
+
+/** 初始化修改 */
+function getModifyInfo(oId){
+	modify();
+	var sendData = {
+		${tableInfo.pkColumn.javaName} : oId
+	};
+	$.getJSON(ctx+"/${tableInfo.firstLowerName}/read.do",sendData,
+		function(data){
+			if(data.returncode == 0){
+#foreach($column in $tableInfo.allColumn)
+				$("input[name='${column.javaName}']").val(data.${column.javaName});
+#end
+			}else{
+				$.sgfmdialog("查询业务单据失败！",1);
+			}
+		}
+	);
+}
+	
+/** 执行删除 */
+function delRecord(oId){
+	if(confirm("您确定要删除${tableInfo.comment}吗？")){
+		var sendData = {
+			${tableInfo.pkColumn.javaName} : oId
+		};
+		$.getJSON(ctx+"/${tableInfo.firstLowerName}/delete.do",sendData,
+			function(data){
+				operationTips("delete","删除",data.returncode);
+			}
+		);
+	}
+}
+	
+/** 清空表单 */
+function clsModifyForm(){
+	$("input[name='${tableInfo.pkColumn.javaName}']").val('0');
+#foreach($column in $tableInfo.otherColumn)
+	$("input[name='${column.javaName}']").val('');
+#end
+	}
+	
+/** 清空查询条件 */
+function clsSearchCondition(){
+#foreach($column in $tableInfo.otherColumn)
+	$("#search${column.firstUpperName}").val('');
+#end
+}

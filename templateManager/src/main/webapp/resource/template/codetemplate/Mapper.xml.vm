@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="${tableInfo.packagePath}.mapper.${tableInfo.firstUpperName}Mapper">	  
+	<select id="count" parameterType="map" resultType="int">
+		SELECT count(1) FROM ${tableInfo.name} 
+		<if test="condition.expressions != null ">
+			<where>${flagDollar}{condition.comboedExpressions}</where>
+		</if>		
+	</select>
+	  
+	<select id="list" parameterType="map" resultType="${tableInfo.packagePath}.model.${tableInfo.firstUpperName}VO">
+		SELECT * FROM ${tableInfo.name} 
+		<if test="condition.expressions != null ">
+			<where>${flagDollar}{condition.comboedExpressions}</where>
+		</if>		
+		<if test="condition.orderBy != null">
+			${flagDollar}{condition.orderBy}
+		</if>  
+	</select>
+	
+	<insert id="insert" parameterType="${tableInfo.packagePath}.model.${tableInfo.firstUpperName}VO" >
+		INSERT INTO $tableInfo.name (
+		#foreach($column in $tableInfo.otherColumn)#if($tableInfo.otherColumn.size()== $velocityCount)
+		$column.name
+		#else
+		$column.name,
+		#end#end)VALUES(
+		#foreach($column in $tableInfo.otherColumn)#if($tableInfo.otherColumn.size()== $velocityCount)
+		#{$column.javaName,jdbcType=$column.jdbcType}
+		#else
+		#{$column.javaName,jdbcType=$column.jdbcType},
+		#end#end)
+	</insert>
+	
+	<insert id="insertBatch" parameterType="java.util.List">
+		INSERT INTO $tableInfo.name (
+		#foreach($column in $tableInfo.otherColumn)#if($tableInfo.otherColumn.size()== $velocityCount)
+		$column.name
+		#else
+		$column.name,
+		#end#end) values
+		<foreach collection="list" item="item" index="index" separator=",">
+		(
+		
+		#foreach($column in $tableInfo.otherColumn)#if($tableInfo.otherColumn.size()== $velocityCount)
+		#{item.$column.javaName,jdbcType=$column.jdbcType}
+		#else
+		#{item.$column.javaName,jdbcType=$column.jdbcType},
+		#end#end
+		)
+		</foreach>
+		
+	</insert>
+			
+	<select id="read" parameterType="map" resultType="${tableInfo.packagePath}.model.${tableInfo.firstUpperName}VO">
+		SELECT * FROM ${tableInfo.name} WHERE ${tableInfo.pkColumn.name} = #{id[0]}
+	</select>
+
+	<insert id="insertPartitive" parameterType="map">
+		INSERT INTO ${tableInfo.name} (${flagDollar}{fields._insertFields}) values (${flagDollar}{fields._insertValues})
+	</insert>
+	  
+	<update id="update" parameterType="${tableInfo.packagePath}.model.${tableInfo.firstUpperName}VO">
+		UPDATE ${tableInfo.name} SET 
+		#foreach($column in $tableInfo.otherColumn)#if($tableInfo.otherColumn.size()== $velocityCount)
+		$column.name = #{$column.javaName,jdbcType=$column.jdbcType}
+		#else
+		$column.name = #{$column.javaName,jdbcType=$column.jdbcType},
+		#end#end
+		WHERE ${tableInfo.pkColumn.name} = #{${tableInfo.pkColumn.javaName}}
+	</update>
+
+	<update id="updatePartitive" parameterType="map" >
+		UPDATE ${tableInfo.name} SET ${flagDollar}{fields._updateSql} WHERE ${tableInfo.pkColumn.name} = #{id[0]}
+	</update>
+	  
+	<update id="updateBatch" parameterType="map" >
+		UPDATE ${tableInfo.name} SET  ${flagDollar}{fields._updateSql}
+		<if test="condition.expressions != null ">
+			<where> ${flagDollar}{condition.comboedExpressions} </where>
+		</if>		
+	</update>
+		  
+	<delete id="delete" parameterType="map" >
+		DELETE FROM ${tableInfo.name} WHERE ${tableInfo.pkColumn.name} = #{id[0]}
+	</delete>
+
+	<delete id="deleteBatch" parameterType="map" >
+		DELETE FROM ${tableInfo.name} 
+		<if test="condition.expressions != null ">
+			<where>${flagDollar}{condition.comboedExpressions}</where>
+		</if>		
+	</delete>
+</mapper>

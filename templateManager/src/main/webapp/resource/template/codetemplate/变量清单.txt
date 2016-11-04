@@ -1,0 +1,29 @@
+----table----
+name: 表英文名称：QCMS_WORK_TASK    **
+comment: 表注释：工作任务
+lowerName：小写的类名：worktask   **
+javaName:java名称：workTask  
+firstUpperName：首字母大写的java名称：WorkTask  **
+firstLowerName：首字母小写的java名称：workTask  **
+pkColumn：主键字段列表    **
+allColumn：所有字段列表  **
+otherColumn：非主键字段列表  **
+ 
+----column----
+name：字段名称（数据库中的名称）：USER_NAME  **
+javaName：java属性名称：userName **
+firstUpperName：首字母大写java属性名称：UserName  **
+comment：列注释：**
+isPk：是否主键： **
+type：列的数据库类型：VARCHAR2  **
+javaType：列对应的java类型：java.lang.String **
+jdbcType：列对应的jdbc类型：VARCHAR **
+size：列的数据库长度：
+
+-------pub-------- 
+currDate：当前日期：2015-05-19
+userName：用户名称：黄洪波
+
+pathName：带包路径的名称  **
+flagWell：#号标识符   **
+flagDollar：$号标识符  **

@@ -1,0 +1,72 @@
+package ${tableInfo.packagePath}.model;
+
+import com.lckj.base.model.PagerParam;
+
+#set($isDate = false)
+#set($isBigDecimal = false)
+#foreach($column in $tableInfo.allColumn)
+#if(${column.javaType} == "Date")#set($isDate = true)#end
+#if(${column.javaType} == "BigDecimal")#set($isBigDecimal = true)#end
+#end
+#if($isDate == true)
+import java.util.Date;
+import org.codehaus.jackson.map.annotate.JsonSerialize;
+import org.springframework.format.annotation.DateTimeFormat;
+import com.lckj.base.jsondate.JsonDateSerializer;
+#end
+#if($isBigDecimal == true)
+import java.math.BigDecimal;
+#end
+/**
+ * ${tableInfo.comment}实体类
+ * 
+ * @author ${userName}
+ * @since 1.0
+ * @version ${currDate} ${userName}
+ */
+public class ${tableInfo.firstUpperName}VO extends PagerParam {
+
+#foreach($column in $tableInfo.allColumn)
+	/** ${column.comment} **/
+#if(${column.javaType} == "Date")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+#end
+	private ${column.javaType} ${column.javaName};
+#end
+
+#foreach($column in $tableInfo.allColumn)
+
+    /**
+     * 获取${column.comment}
+     * 
+     * @return ${column.comment}
+     */
+     #if(${column.javaType} == "Date")
+	@JsonSerialize(using = JsonDateSerializer.class)
+     #end
+	public ${column.javaType} get${column.firstUpperName}(){
+		return ${column.javaName};
+	}
+	
+	/**
+     * 设值${column.comment}
+     * 
+     * @param ${column.javaName} ${column.comment}
+     */
+	public void set${column.firstUpperName}(${column.javaType} ${column.javaName}){
+		this.${column.javaName} = ${column.javaName};
+	}
+#end
+
+    @Override
+    public String toString() {
+        StringBuffer sb = new StringBuffer(512);
+        sb.append("${tableInfo.firstUpperName}VO[");
+        sb.append(super.toString());
+	#foreach($column in $tableInfo.allColumn)
+        sb.append("\n    ${column.javaName}=").append(this.${column.javaName});
+	#end        
+        sb.append("\n]");
+        return sb.toString();
+    }
+}

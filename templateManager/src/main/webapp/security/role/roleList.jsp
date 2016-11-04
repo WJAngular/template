@@ -1,0 +1,100 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ include file="/include/head.jsp" %>
+<%@ include file="/include/formhead.jsp" %>
+<html>
+<head>
+<script type="text/JavaScript" src="${ctx}/security/role/roleList.js"></script>
+</head>
+
+<body class="tbg">
+<div class="b_frame">
+	<h4 class="tit">角色信息</h4>
+	<div class="key_body">	
+		角色名称：<input id="searchRoleName" name="searchRoleName" type="text"/>
+	   	<input type="button" onclick="searchRecord();" id="search_btn" value="查询" class="bt_search" />
+		<ct:operation operationCode="role_insert">
+	    	<input type="button" id="add_show_btn" value="新增" class="bt_add" />
+	    </ct:operation>
+	</div>
+	<table id="table_list" class="table_base">
+		<tr>
+			<th width="2%" align="center" sgfm-binddata="roleId" sgfm-bindmode="function|getRadio({0})"></th>	
+			<th align="left" sgfm-binddata="roleName">角色名称</th>
+			<th width="40%" align="left" sgfm-binddata="remark">说明</th>
+			<th width="5%" align="center" sgfm-binddata="roleLevel">角色级别</th>
+			<ct:operation operationCode="role_locked">
+				<th width="6%" align="center" sgfm-binddata="roleId|status" sgfm-bindmode="function|getLockBtn({0},{1})">状态</th>
+			</ct:operation>
+			<ct:operation operationCode="role_domenu">
+				<th width="6%" align="center" sgfm-binddata="roleId" sgfm-bindmode="function|getMenuBtn({0})">授权操作</th>
+			</ct:operation>
+			<ct:operation operationCode="role_douser">
+				<th width="6%" align="center" sgfm-binddata="roleId" sgfm-bindmode="function|getUserBtn({0})">授权用户</th>
+			</ct:operation>
+			<th width="10%" align="center" sgfm-binddata="roleId" sgfm-bindmode="function|<ct:operation operationCode="role_update">getModifyBtn({0})</ct:operation>@<ct:operation operationCode="role_delete">getDelBtn({0})</ct:operation>">操作</th>
+		</tr>
+	</table>
+</div>
+
+<div id="roleMappingMenuDiv" class="float_div" style="position:absolute;width:400px;top:150px;display:none;">
+	<h4 class="tit">角色菜单对应关系<div class="b_close"><a href="#">&nbsp;</a></div></h4>
+	<div style="overflow-y: auto; height: 450px; ">
+		<input type="hidden" id="mappingRoleId">
+		<table id="roleMappingMenu" class="table_edit_role">
+		</table>
+	</div>
+		<input type="button" value="保存" onclick="saveRoleMappingMenu()"  class="bt_modify"/>
+		<input type="button" value="关闭" onclick="hideDiv('roleMappingMenuDiv')"  class="bt_stop"/>
+</div>
+
+<div id="roleMappingUserDiv" class="float_div" style="position:absolute;width:400px;top:150px;display:none;">
+	<h4 class="tit">角色用户对应关系<div class="b_close"><a href="#">&nbsp;</a></div></h4>
+	<div style="overflow-y: auto; height: 450px; ">
+		<input type="hidden" id="mappingRoleUserId">
+		<table id="roleMappingUser" class="table_edit">
+		</table>
+	</div>
+		<input type="button" value="保存" onclick="saveRoleMappingUser()"  class="bt_modify"/>
+		<input type="button" value="关闭" onclick="hideDiv('roleMappingUserDiv')"  class="bt_stop"/>
+</div>
+
+<div id="modifyDiv" class="float_div" style="position:absolute;width:600px;top:150px;display:none;">
+	<h4 class="tit">编辑角色信息<div class="b_close"><a href="#">&nbsp;</a></div></h4>
+ 	<div class="key_body">
+      	<form id="modifyForm">
+        	<table class="table_edit">
+				<tr>
+					<td width="15%" align="right">角色名称<font color="red">*</font></td>
+					<td width="35%" align="left">
+						<input type="text" name="roleName" maxlength="50" datatype="*"  nullmsg="请输入角色名称！"/>
+					</td>
+					<td width="15%" align="right">状态</td>
+					<td width="35%" align="left">
+						<ct:dict controlType="2" id="status" name="status" dictType="StatusFlag"/>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">角色级别<font color="red">*</font></td>
+					<td align="left" colspan="3">
+						<input type="text" name="roleLevel" maxlength="2"  datatype="n" errormsg="角色级别只能为数字" nullmsg="请输入角色级别"/>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">备注</td>
+					<td align="left" colspan="3">
+						<textarea name="remark" cols="40" rows="5"></textarea>
+					</td>	
+				</tr>
+				<tr>
+                 	<td colspan="6" align="center">
+	                 	<input type="hidden" name="roleId" />
+	                 	<input type="submit" id="modify_btn" value="保存"  class="bt_modify"/>
+	                 	<input type="button" value="关闭" onclick="hideDiv('modifyDiv')"  class="bt_stop"/>
+                  	</td>
+               	</tr>
+         	</table>
+    	</form>
+	</div>
+</div>
+</body>
+</html>

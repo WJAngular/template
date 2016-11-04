@@ -1,0 +1,26 @@
+My97DatePicker   			文件夹下是日期控件
+commonLib.js     			是用于页面获取数据字典值
+jquery-spin.js   			用户文本框点击实现数值增减
+jquery.hotkeys.js			快捷键插件
+jquery.min.js    			jQuery基础JS
+jquery.sgfmdialog.js		提示框
+jquery.sgfmform.js			表单
+jquery.sgfmpager.js			分页
+jquery.sgfmtable.js			列表查询控件
+jquery.sgfmtree.js			树
+jquery.tools.min.js			Tabs页
+left_menu.js				左边菜单收缩用
+public.js					页面公用JS
+quickSelect.js				可用的全页面下拉框快速检索
+
+---------临时、无用JS----------
+jquery.hotkeys-0.7.9.min.js  	号称可以实现浏览器热键拦截、功能键、组合键捕捉等，貌似对IE8无效
+jquery.selectseach.min.js   	下拉框拼音首字母检索，不太好用（是压缩过的，无法修改）
+jquery.sgfmrefresh.js			刷新控件，貌似没用到
+jquery.sgfmselect.js			级联菜单，没用到
+pop.js							居中打开窗口、日历控件，好像没用到
+util.cookie.js					cookie操作，没用到
+validator.js					常用的表单验证，没用这个
+
+
+				

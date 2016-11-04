@@ -1,0 +1,25 @@
+<%@page contentType="text/html;charset=UTF-8"%>
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<%@ include file="/include/include.jsp"%>
+</head>
+<body class='easyui-layout' style="padding:1px;">
+	<div class="easyui-panel" title="${tableInfo.comment}详情">
+		<table class="form-layout">
+	#foreach($column in $tableInfo.otherColumn)		
+			<tr>
+				<td>${column.comment}:</td>
+				<td>
+					 ${flagDollar}{${tableInfo.firstLowerName}.${column.javaName}}
+				</td>
+			</tr>
+	#end		
+		</table>
+		<div style="text-align:left;padding:15px">
+			<button onclick="window.close();" id="closeBtn" class="easyui-linkbutton" iconCls="icon-cancel">关闭</button>
+		</div>
+	</div>
+</body>
+</html>

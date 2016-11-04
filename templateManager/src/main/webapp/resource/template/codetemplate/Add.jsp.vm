@@ -1,0 +1,52 @@
+<%@page contentType="text/html;charset=UTF-8"%>
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<%@ include file="/include/include.jsp"%>
+<script type="text/javascript">
+	/** 关闭当前页面，刷新父页面 */
+	function closeWindows(){
+		window.close();
+		window.opener.refreshList();
+	}
+
+	/** 新增记录，刷新父页面 */
+	function addRecord(){
+		${flagDollar}('${flagWell}${tableInfo.firstLowerName}AddForm').form('submit', {   
+			url:appPath+"/${tableInfo.firstLowerName}/add.do",
+			success:function(data){   
+				var data = data.trim();
+				var dataObject = ${flagDollar}.parseJSON(data);
+				if(dataObject.errors){
+					${flagDollar}.messager.alert('错误',dataObject.message);
+				}else{
+					window.close();
+					window.opener.refreshList('新增${tableInfo.comment}成功！');
+				} 
+			}   
+		});  
+	}
+</script>
+</head>
+<body class='easyui-layout' style="padding:1px;">
+	<div class="easyui-panel" title="新增${tableInfo.comment}">
+		<form id="${tableInfo.firstLowerName}AddForm" method="post" action="${flagDollar}{appPath}/${tableInfo.firstLowerName}/add.do">			
+			<table class="form-layout">
+#foreach($column in $tableInfo.otherColumn)	
+				<tr>
+					<td>${column.comment}:</td>
+					<td>
+						<input class="easyui-textbox" type="text" id="${column.javaName}" name="${column.javaName}" required="true"/>
+					</td>
+				</tr>
+#end					
+			</table>
+			<div style="text-align:left;padding:15px">
+				<a id="saveBtn" href="${flagWell}" onclick="addRecord();" class="easyui-linkbutton" iconCls="icon-ok">保存</a>
+				<a id="closeBtn" href="${flagWell}" onclick="closeWindows();" class="easyui-linkbutton" iconCls="icon-cancel">关闭</a>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

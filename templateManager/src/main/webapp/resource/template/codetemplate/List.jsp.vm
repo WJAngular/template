@@ -1,0 +1,89 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ include file="/include/head.jsp" %>
+<%@ include file="/include/formhead.jsp" %>
+<html>
+<head>
+	<script type="text/javascript" src="${flagDollar}{ctx}/${tableInfo.firstLowerName}/${tableInfo.firstLowerName}List.js"></script>
+</head>
+<body class="tbg">
+	<div class="b_frame">
+		<h4 class="tit">${tableInfo.comment}</h4>
+		<div class="key_body">
+#foreach($column in $tableInfo.otherColumn)
+#if(${column.javaType} == "Date") 
+			${column.comment}：<input id="search${column.firstUpperName}" name="search${column.firstUpperName}" type="text" onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})"/>
+#else 
+			${column.comment}：<input id="search${column.firstUpperName}" name="search${column.firstUpperName}" type="text"/>
+#end
+#end
+	    	<input type="button" onclick="clsSearchCondition();" id="search_btn" value="清空条件" class="bt_del_2" />
+	    	<input type="button" onclick="searchRecord();" id="search_btn" value="查询" class="bt_search" />
+	     	<input type="button" id="add_show_btn" value="新增" class="bt_add" />		     	
+		</div>
+		<table id="table_list" class="table_base">
+			<tr>
+				<th width="2%" align="center" sgfm-binddata="${tableInfo.pkColumn.javaName}" sgfm-bindmode="function|getCheckBox({0})">
+					<input type="checkbox" id="check_all" onclick="checkChange()" />
+				</th>					
+				#foreach($column in $tableInfo.otherColumn)<th width="10%" align="left" sgfm-binddata="${column.javaName}">${column.comment}</th>
+				#end<th align="center" sgfm-binddata="${tableInfo.pkColumn.javaName}" sgfm-bindmode="function|getModifyBtn({0})@getDelBtn({0})">操作</th>
+			</tr>
+		</table>
+	</div>
+
+	<div id="modifyDiv" class="float_div" style="position:absolute;width:600px;top:150px;display:none;" >
+	<h4 class="tit">修改${tableInfo.comment}<div class="b_close"><a href="#">&nbsp;</a></div></h4>
+ 	<div class="key_body">
+      	<form id="modifyForm">
+        	<table class="table_edit">
+#set ($lineNum=1)
+#foreach($column in $tableInfo.otherColumn)
+				<tr>
+#if ($lineNum <= 2) 
+					<td width="15%" align="right">${column.comment}<font color="red">*</font></td>
+					<td width="35%" align="left">
+#if(${column.javaType} == "Date") 
+						<input type="text" id="${column.javaName}" name="${column.javaName}" onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})" />						
+#else 
+						<input type="text" id="${column.javaName}" name="${column.javaName}" maxlength="${column.size}" datatype="*"  nullmsg="请输入${column.comment}"/>
+#end						
+					</td>
+#else 
+#if(${column.javaType} == "Date") 
+					<td align="right">${column.comment}<font color="red">*</font></td>
+					<td align="left">
+						<input type="text" id="${column.javaName}" name="${column.javaName}" onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})" />
+					</td>
+#elseif(${column.javaType} == "Clob") 
+					<td align="right">${column.comment}<font color="red">*</font></td>
+					<td align="left" colspan="3">
+						<textarea id="${column.javaName}" name ="${column.javaName}" cols="40" rows="5"></textarea>
+					</td>
+#elseif(${column.size} >= 500) 
+					<td align="right">${column.comment}<font color="red">*</font></td>
+					<td align="left" colspan="3">
+						<textarea id="${column.javaName}" name ="${column.javaName}" cols="40" rows="5"></textarea>
+					</td>
+#else
+					<td align="right">${column.comment}<font color="red">*</font></td>
+					<td align="left">
+						<input type="text" id="${column.javaName}" name="${column.javaName}"/>
+					</td>	
+#end#end
+				</tr>
+#set ($lineNum = $lineNum+1)
+#end
+				<tr>
+                 	<td colspan="4" align="center">
+	                 	<input type="hidden" name="${tableInfo.pkColumn.javaName}" />
+	                 	<input type="submit" id="modify_btn" value="保存"  class="bt_modify"/>
+	                 	<input type="button" value="关闭" onclick="hideDiv('modifyDiv')"  class="bt_stop"/>
+                  	</td>
+               	</tr>
+         	</table>
+    	</form>
+	</div>
+</div>
+</body>
+</html>
+

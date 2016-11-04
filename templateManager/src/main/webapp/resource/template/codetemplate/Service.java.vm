@@ -1,0 +1,31 @@
+package ${tableInfo.packagePath}.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.lckj.core.orm.MybatisMapper;
+import com.lckj.core.service.AbstractService;
+import ${tableInfo.packagePath}.mapper.${tableInfo.firstUpperName}Mapper;
+import ${tableInfo.packagePath}.model.${tableInfo.firstUpperName}VO;
+
+
+/**
+ * ${tableInfo.comment}业务逻辑处理类
+ * 
+ * @author ${userName}
+ * @since 1.0
+ * @version ${currDate} ${userName}
+ */
+@Service
+public class ${tableInfo.firstUpperName}Service extends AbstractService<${tableInfo.firstUpperName}VO>{
+
+	/** ${tableInfo.comment}持久化处理接口 */
+	@Autowired
+	${tableInfo.firstUpperName}Mapper ${tableInfo.firstLowerName}mapper;
+
+	/** 获取Mapper接口 */
+	@Override
+	protected MybatisMapper<${tableInfo.firstUpperName}VO> getMapper() {
+		return this.${tableInfo.firstLowerName}mapper;
+	}
+}	

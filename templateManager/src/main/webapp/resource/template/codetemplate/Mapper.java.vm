@@ -1,0 +1,17 @@
+package ${tableInfo.packagePath}.mapper;
+
+import org.springframework.stereotype.Repository;
+
+import com.lckj.core.orm.MybatisMapper;
+import ${tableInfo.packagePath}.model.${tableInfo.firstUpperName}VO;
+
+/**
+ * ${tableInfo.comment}持久化操作类
+ * 
+ * @author ${userName}
+ * @since 1.0
+ * @version ${currDate} ${userName}
+ */
+@Repository
+public interface ${tableInfo.firstUpperName}Mapper extends MybatisMapper<${tableInfo.firstUpperName}VO> {
+}

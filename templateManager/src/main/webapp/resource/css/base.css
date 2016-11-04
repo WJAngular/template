@@ -1,0 +1,393 @@
+@charset "utf-8";
+
+/*******************************************
+*               主体
+*******************************************/
+body {
+	padding:0;
+	margin:0; 
+	text-align:center;
+	font-size:12px; 
+	font-family:"宋体", Verdana, Arial;
+	background:#fff;
+}
+ul,ol,dl,form,dt,dd {padding:0;margin:0;}
+ul,ol,dl {list-style:none;}
+
+/** 下划线 **/
+.line_blue { 
+	border-bottom:1px #d9e6f0 solid; 
+	text-align:center; width:98%;
+	padding-bottom: 8px; 
+}
+
+/* 按钮样式 */
+.bt_no,.bt_search,.bt_add,.bt_folder,.bt_hand,.bt_stop,.bt_yes,.bt_emotion,.bt_return,.bt_save,
+.bt_money,.bt_back,.bt_up,.bt_del_1,.bt_down,.bt_next,.bt_del_2,.bt_stat,
+.bt_modify,.bt_power,.bt_acitve,.bt_acitve1,.bt_player,.bt_print { 
+	padding: 0 8px 0 28px;
+	line-height: 22px;
+	height: 24px;
+	border: none;
+	border: 1px #ccc solid;
+	cursor: pointer;
+  	border-radius: 6px;
+}
+.bt_search {background: url(../images/button/search.gif)}
+.bt_add {background: url(../images/button/add.gif)}
+.bt_folder {background: url(../images/button/folder.gif)}
+.bt_hand {background: url(../images/button/hand.gif)}
+.bt_stop {background: url(../images/button/stop.gif)}
+.bt_yes {background: url(../images/button/yes.gif)}
+.bt_emotion {background: url(../images/button/emotion.gif)}
+.bt_return {background: url(../images/button/return.gif)}
+.bt_save {background: url(../images/button/save.gif)}
+.bt_money {background: url(../images/button/money.gif)}
+.bt_back {background: url(../images/button/back.gif)}
+.bt_up {background: url(../images/button/up.gif)}
+.bt_del_1 {background: url(../images/button/del1.gif)}
+.bt_del_2 {background: url(../images/button/del2.gif)}
+.bt_down {background: url(../images/button/down.gif)}
+.bt_next {background: url(../images/button/next.gif)}
+.bt_modify {background: url(../images/button/modify.gif)}
+.bt_power {background: url(../images/button/power.gif)}
+.bt_acitve {background: url(../images/button/acitve.gif)}
+.bt_player {background: url(../images/button/player.gif)}
+.bt_print {background: url(../images/button/print.gif)}
+.bt_stat {background: url(../images/button/stat.gif)}
+
+/** 链接  */
+.a_clear {}
+.a_clear:after{ content:" "; visibility:hidden; display:block; height:0; overflow:hidden; clear:both;}
+a {color:#333; text-decoration:none;}
+a:hover {color:#000; text-decoration:underline;}
+
+.a_modify {padding:2px 15px 2px 2px; background:url(../images/icons/modify.gif) no-repeat}
+.a_power {padding:2px 15px 2px 2px; background:url(../images/icons/power.gif) no-repeat}
+.a_del {padding:2px 15px 2px 2px; background:url(../images/icons/del.gif) no-repeat}
+.a_del1 {padding:2px 15px 2px 2px; background:url(../images/icons/clear.gif) no-repeat}
+.a_flag_y {padding:2px 15px 2px 2px; background:url(../images/icons/flagy.gif) no-repeat}
+.a_flag_n {padding:2px 15px 2px 2px; background:url(../images/icons/flagn.gif) no-repeat}
+.a_locked {padding:2px 15px 2px 2px; background:url(../images/icons/locked.gif) no-repeat}
+.a_unlock {padding:2px 15px 2px 2px; background:url(../images/icons/unlock.gif) no-repeat}
+.a_set {padding:2px 15px 2px 2px; background:url(../images/icons/set.gif) no-repeat}
+.a_audit {padding:2px 15px 2px 2px; background:url(../images/icons/audit.gif) no-repeat}
+.a_view {padding:2px 15px 2px 2px; background:url(../images/icons/view.gif) no-repeat}
+.a_detail {padding:2px 15px 2px 2px; background:url(../images/icons/detail.gif) no-repeat}
+.a_money {padding:2px 15px 2px 2px; background:url(../images/icons/money.gif) no-repeat}
+.a_play {padding:2px 15px 2px 2px; background:url(../images/icons/play.gif) no-repeat}
+.a_accept {padding:2px 15px 2px 2px; background:url(../images/icons/accept.gif) no-repeat}
+.a_over {padding:2px 15px 2px 2px; background:url(../images/icons/over.gif) no-repeat}
+.a_replay {padding:2px 15px 2px 2px; background:url(../images/icons/replay.png) no-repeat}
+.a_recovery {padding:2px 15px 2px 2px; background:url(../images/icons/recovery.gif) no-repeat}
+.a_down {padding:2px 15px 2px 2px; background:url(../images/icons/down.gif) no-repeat}
+.a_open {padding:2px 15px 2px 2px; background:url(../images/icons/open.gif) no-repeat}
+.a_close {padding:2px 15px 2px 2px; background:url(../images/icons/close.gif) no-repeat}
+.a_message {padding:2px 15px 2px 2px; background:url(../images/icons/message.png) no-repeat}
+.a_unfold {padding:2px 15px 2px 2px; background:url(../images/frame/ico.gif) no-repeat -100px -40px;}
+.a_packup {padding:2px 15px 2px 2px; background:url(../images/frame/ico.gif) no-repeat -120px -40px;}
+.a_ys {display:inline-block;width:2px;height:15px;margin-top:2px;_overflow:hidden;background:url(../images/frame/ico.gif) no-repeat -220px top;}
+.a_no {display:inline-block;width:2px;height:15px;margin-top:2px;_overflow:hidden;background:url(../images/frame/ico.gif) no-repeat -240px top;}
+
+/** 主框架  */
+.b_frame {margin:3px; border:1px #d3dbe7 solid;min-height:60px;_height:60px;margin-bottom:5px;clear:both; width:99%; }
+.b_frame .tit {border-bottom:1px #d3dbe7 solid;background:#e8ecee;height:25px;line-height:25px;font-weight:bold;font-size:12px;color:#000;margin:0;padding:0 0 0 0px; text-align:center; position:relative;}
+.b_frame .tit .b_close {width:14px;height:14px;overflow:hidden; background:url(../images/icons/ico.gif) no-repeat -20px -60px; position:absolute;top:6px;right:6px;}
+.b_frame .tit .b_close a {display:block;}
+.b_frame .key_body {margin:1px 0px 2px 5px; text-align:left;vertical-align:middle;}
+
+.b_frame1 {margin:3px;border-top: 1px solid #B4C9C6;border-left: 1px solid #B4C9C6;border-right: 1px solid #B4C9C6;min-height:60px;_height:60px;margin-bottom:5px; width:99%; }
+.b_frame1 .tit {background:#e8ecee;height:25px;line-height:25px;font-weight:bold;font-size:12px;color:#000;margin:0;padding:0 0 0 0px; text-align:center; position:relative;}
+.b_frame1 .key_body {margin:1px 0px 2px 5px; text-align:left;vertical-align:middle;}
+
+.b_frame_center {margin:5px; border:1px #d3dbe7 solid;background:#FFFFFF;min-height:60px;_height:60px;margin-bottom:10px;clear:both; width:99%; }
+.b_frame_center .tit {border-bottom:1px #d3dbe7 solid;background:#e8ecee;height:28px;line-height:28px;font-weight:bold;font-size:12px;color:#000;margin:0;padding:0 0 0 10px; text-align:center;}
+.b_frame_center .tit .b_close {width:14px;height:14px;overflow:hidden; background:url(../images/icons/ico.gif) no-repeat -20px -60px;top:6px;right:6px;}
+.b_frame_center .tit .b_close a {display:block;}
+
+.pre_content {margin-left:50px;}
+
+/**弹出层样式**/
+.float_div {border:1px #d3dbe7 solid;min-height:60px;_height:60px;margin-bottom:10px;clear:both; background-color:#FFF }
+.float_div .tit {border-bottom:1px #d3dbe7 solid;background:#e8ecee;height:28px;line-height:28px;font-weight:bold;font-size:12px;	color:#000;margin:0;padding:0 0 0 10px; text-align:left; position:relative;}
+.float_div .tit .b_close {width:14px;height:14px;overflow:hidden; background:url(../images/icons/ico.gif) no-repeat -20px -60px; position:absolute;top:6px;right:6px;}
+.float_div .tit .b_close a {display:block;}
+.float_div .key_body {margin:10px;}
+
+.table_main_index { width:100%; height: 63px; }
+.table_main_index td { text-align:center;padding:5px; color:#069;}
+.table_main_index img {border:0;}
+.table_main_index a { text-align:center;padding:5px; color:#069;}
+.table_main_index a:hover {border-bottom:1px #ccc dashed; text-decoration:none;color:#09D;}
+
+/*login */
+#login {margin:200px auto 0 auto;width:900px;height:300px;text-align:left;}
+#l_input {width:200px;margin-left:450px;padding-top:350px;}
+#l_input li {padding:0 0 8px 0;color:#000;}
+#l_input li input {border:1px #999 solid;color:#333; background:#fff;width:120px;height:18px;line-height:18px;padding:0 2px;}
+#l_input li .l_button {background:url(../images/frame/login_button.gif) no-repeat;width:104px;height:36px;border:none;padding:0;margin:5px 0 0 38px; cursor:pointer;}
+
+/** 基础表格样式 **/
+.table_base {border-left:1px #d3dbe7 solid;border-top:1px #d3dbe7 solid;border-right:1px #d3dbe7 solid;width:100%;}
+.table_base th {HEIGHT:30px;text-align:center;border-bottom:2px #e3e3e3 solid;border-right:1px #e3e3e3 solid;padding:0 px;background:#98CCEA;height:20px;line-height:20px;padding:2px;font-weight:normal;color:#FFFFFF;position:relative;z-index: 20;}
+.table_base td {padding:1px 3px;line-height:20px;border:1px #e3e3e3 solid;border-right:1px #e3e3e3 solid}
+.table_base tr:hover { background: #FFF4D7}
+
+/**内嵌表格样式**/
+.table_inner {border:1px solid #fff;width:100%;}
+.table_inner th {
+	HEIGHT:25px;
+	border:1px #ffffff solid;
+	padding:0 5px;
+	background:#e8ecee;
+	height:24px;
+	font-size: 15px;
+	text-align: center;
+	line-height:24px;
+	padding:2px;
+	font-weight:bold;
+	color:#727171;
+	position:relative;
+	z-index: 20;
+}
+.table_inner tr{background: #FFFFFF}
+.table_inner td {padding:3px;line-height:20px;border:1px #e0e1e1 solid;color:#727171;}
+.table_inner tr:hover { background: #FFF4D7}
+
+.table_left_boder {border-left:1px #d3dbe7 solid;border-top:1px #d3dbe7 solid;border-right:1px #d3dbe7 solid;width:100%;}
+.table_left_boder th {HEIGHT:30px;border-bottom:1px #e3e3e3 solid;border-right:1px #e3e3e3 solid;padding:0 px;background:#EBFFFF;height:20px;line-height:22px;padding:2px;font-weight:normal;color:#375a90;position:relative;z-index: 20;}
+.table_left_boder td {padding:0px;line-height:20px;border:0px #e3e3e3 solid;border-right:1px #e3e3e3 solid}
+.table_left_boder tr:hover { background: #FFF4D7}
+
+.table_base_nomargin {border:0px #d3dbe7 solid;width:100%;}
+.table_base_nomargin th {HEIGHT:30px;border-bottom:2px #e3e3e3 solid;border-right:1px #e3e3e3 solid;padding:0 5px;
+	background:#EBFFFF;height:20px;line-height:20px;padding:2px;font-weight:normal;color:#375a90;position:relative;z-index: 20;
+}
+.table_base_nomargin td {padding:0px;line-height:20px;border:0px #e3e3e3 solid;}
+.table_base_nomargin tr:hover {background: #e3e3e3}
+
+/** 编辑页面样式 **/
+.table_edit {
+	border-left: 1px #e3e3e3 solid;
+	border-top: 1px #e3e3e3 solid;
+	width: 100%;
+}
+.table_edit th {
+	HEIGHT: 25px;
+	border-bottom: 2px #e3e3e3 solid;
+	border-right: 1px #e3e3e3 solid;
+	padding: 0 px;
+	background: #EBFFFF;
+	height: 25px;
+	line-height: 25px;
+	padding: 2px;
+	font-weight: normal;
+	color: #375a90;
+	position: relative;
+	z-index: 20;
+}
+.table_edit td {
+	height: 25px;
+	line-height: 25px;
+	border-collapse: collapse;
+	padding: 3px 3px 3px 2px;
+	border-bottom: 1px #e3e3e3 solid;
+	border-right: 1px #e3e3e3 solid;
+	padding-left: 6px;
+	padding-right: 6px;
+}
+.table_edit td .input {
+	border: 1px solid;
+	padding: 0 1px;
+	height: 30px;
+	line-height: 30px;
+}
+.table_edit td select {
+	width: 122px;
+	border: 1px #ccc solid;
+	padding: 0 0px;
+	height: 20px;
+	line-height: 20px;
+	background: #fff;
+}
+.table_edit td .input_ro {
+	border: 1px #e3e3e3 solid;
+	padding: 0 2px;
+	height: 18px;
+	line-height: 18px;
+	background: #F3F3F3;
+}
+.table_edit td .input_n {
+	border: 0px #e3e3e3 solid;
+	padding: 0 2px;
+	height: 18px;
+	line-height: 18px;
+}
+.table_edit td textarea {
+	border: 1px #d3dbe7 solid;
+	padding: 0 3px;
+	line-height: 18px;
+	width: 99%;
+	height: 54px;
+	font-size: 12px;
+}
+.table_edit td textarea_ro {
+	border: 1px #e3e3e3 solid;
+	padding: 0 3px;
+	line-height: 18px;
+	width: 99%;
+	height: 54px;
+	font-size: 12px;
+	background: #F3F3F3;
+}
+
+/** 编辑页面无边框样式 **/
+.table_edit_noframe {
+	border: 0px;
+	width: 100%;
+}
+.table_edit_noframe td {
+	height: 25px;
+	line-height: 25px;
+	padding: 3px 0px 3px 0px;
+	border: 0px;
+}
+
+/** 编辑页面无边框样式 **/
+.table_edit_role {
+	border: 0px;
+	width: 100%;
+}
+.table_edit_role td {
+	height: 18px;
+	line-height: 18px;
+	padding: 3px 0px 3px 0px;
+	border: 0px;
+}
+
+/** 移动控制层样式 */
+.mobile_div_up {
+	height:6px;
+	background-image:url(../images/frame/levelup.gif);
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.mobile_div_down {
+	height:6px;
+	background-image:url(../images/frame/leveldown.gif);
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+/*table css*/
+.table_border {border:0px #e3e3e3 solid;width:100%;}
+.table_border td { border-collapse:collapse;padding:3px 0 3px 2px;border:0px #e3e3e3 solid;padding-left: 5px;padding-right: 0px;}
+.table_border td .input_1 {border:1px #e3e3e3 solid;padding:0 2px;height:18px;line-height:18px;}
+.table_border td .input_1_ro {border:1px #e3e3e3 solid;padding:0 2px;height:18px;line-height:18px;background:#F3F3F3;}
+.table_border td .textarea_1 {border:1px #e3e3e3 solid;padding:0 3px;line-height:18px;width:97%;font-size:12px;color:#333;background:#fff;}
+
+/** 查询条件框样式 **/
+.input_list li {width:250px;float:left;height:22px;line-height:22px;display:inline;margin:0 0 4px 10px;overflow:hidden;color:#375a90;}
+.input_list li input {border:1px #bdc9da solid;height:18px;line-height:18px;padding:0 2px; vertical-align:middle; background:#fff;}
+.search_list {padding-bottom:5px;}
+.search_list li {line-height:20px;padding:0px 0; text-align:left; white-space:nowrap;}
+.search_list li .st_1 {text-align:right;display:inline-block;}
+.search_list li .t_input {height:18px;line-height:18px;padding:0 2px;border:1px #ccc solid;}
+.search_list li.sub { background:#f0f0f0;margin-left:0;padding-left:10px;color:#999;}
+.search_ac {clear:both;padding:3px 5px 3px 76px;border-top:1px #e3e3e3 solid;}
+
+
+/*******************************************
+*              文本框样式
+*******************************************/
+
+/* 普通输入框 */
+input.flat_u {
+	PADDING-RIGHT: 1px;
+	PADDING-LEFT: 1px;
+	FONT-SIZE: 9pt;
+	PADDING-BOTTOM: 1px;
+	WIDTH: auto;
+	HEIGHT:22;
+	PADDING-TOP: 3px;
+	FONT-FAMILY: Verdana;
+	BACKGROUND-COLOR: #ffffff;
+	BORDER: 1px solid #C0BEBE;
+}
+
+/* 带下划线输入框 */
+input.flat_u_bottom {
+	PADDING-RIGHT: 1px;
+	PADDING-LEFT: 1px;
+	FONT-SIZE: 9pt;
+	WIDTH: 250px;
+	HEIGHT:22;
+	PADDING-TOP: 3px;
+	FONT-FAMILY: Verdana;
+	BACKGROUND-COLOR: #ffffff;
+	PADDING-BOTTOM: 1px;
+	BORDER-BOTTOM:  1px solid;
+	BORDER-LEFT:  0px solid;
+	BORDER-RIGHT:  0px solid;
+	BORDER-TOP:  0px solid;
+	text-align:left;
+}
+
+/* 右对齐的输入框 */
+input.flat_u_right {
+	PADDING-RIGHT: 1px;
+	PADDING-LEFT: 1px;
+	FONT-SIZE: 9pt;
+	PADDING-BOTTOM: 1px;
+	WIDTH: auto;
+	HEIGHT:22;
+	PADDING-TOP: 3px;
+	FONT-FAMILY: Verdana;
+	BACKGROUND-COLOR: #ffffff;
+	BORDER: 1px solid #C0BEBE;
+	TEXT-ALIGN:right;
+}
+
+/* 只读输入框 */
+input.flat_u_ro {
+	PADDING-RIGHT: 1px;
+	PADDING-LEFT: 1px;
+	FONT-SIZE: 9pt;
+	PADDING-BOTTOM: 1px;
+	WIDTH: auto;
+	HEIGHT:22;
+	PADDING-TOP: 3px;
+	FONT-FAMILY: Verdana;
+	BACKGROUND-COLOR: #E4E4E4;
+	BORDER: 1px solid #C0BEBE;
+}
+
+/* 右对齐的只读输入框 */
+input.flat_u_ro_right {
+	PADDING-RIGHT: 1px;
+	PADDING-LEFT: 1px;
+	FONT-SIZE: 9pt;
+	PADDING-BOTTOM: 1px;
+	WIDTH: auto;
+	HEIGHT:22;
+	PADDING-TOP: 3px;
+	FONT-FAMILY: Verdana;
+	BACKGROUND-COLOR: #E4E4E4;
+	BORDER: 1px solid #C0BEBE;
+	TEXT-ALIGN:right;
+}
+
+/* 无边框的只读输入框 */
+input.flat_n_ro_right {
+	PADDING-RIGHT: 1px;
+	PADDING-LEFT: 1px;
+	FONT-SIZE: 9pt;
+	PADDING-BOTTOM: 1px;
+	WIDTH: auto;
+	HEIGHT:22;
+	PADDING-TOP: 3px;
+	FONT-FAMILY: Verdana;
+	BACKGROUND-COLOR: #ffffff;
+	BORDER: 0px;
+	TEXT-ALIGN:left;
+}

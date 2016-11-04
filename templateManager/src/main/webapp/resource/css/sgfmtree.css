@@ -1,0 +1,52 @@
+@charset "utf-8";
+/* CSS Document */
+.sgfmtree-apple ul{
+ list-style:none;
+}
+.sgfmtree-apple ins{display:inline-block; text-decoration:none; width:18px; height:18px; margin:0 0 0 0; padding:0;}
+.sgfmtree-apple ul, .sgfmtree-apple li { display:block; margin:0 0 0 0; padding:0 0 0 0; list-style-type:none;line-height:18px;white-space:nowrap;} 
+.sgfmtree-apple li,
+.sgfmtree-apple ins { background-image:url("../images/sgfmtree/d.png"); background-repeat:no-repeat; background-color:transparent; cursor:default;} 
+.sgfmtree-apple li li { margin-left:16px; }
+.sgfmtree-apple li{ background-position:-90px 0; background-repeat:repeat-y; mix-height:18px; _height:18px; }
+.sgfmtree-apple .sgfmtree-not-child { background-position:-36px 0px;}
+.sgfmtree-apple a{display:inline-block;}
+.sgfmtree-apple a:focus { outline: none; } 
+.sgfmtree-apple li.sgfmtree-last { background:transparent; }
+.sgfmtree-apple .sgfmtree-open{background-position:-72px 0px;}
+.sgfmtree-apple .sgfmtree-closed{ background-position:-54px 0px;}
+.sgfmtree-apple .sgfmtree-closed-icon { background-position:-56px -19px; }
+.sgfmtree-apple .sgfmtree-open-icon { background-position:-56px -37px; }
+.sgfmtree-apple .sgfmtree-not-child-icon{background-position:-56px -54px;}
+.sgfmtree-apple .sgfmtree-loading-icon { background:url("../images/sgfmtree/throbber.gif") center center no-repeat !important; }
+.sgfmtree-apple .sgfmtree-hovered {background:#d0eaf4;}
+.sgfmtree-apple .sgfmtree-clicked {color:#FF0000 !important; background:#78b0e3;}
+.sgfmtree-apple a{ color:#000000; text-decoration:none; height:18px; line-height:18px; padding:0 2px 0 0;}
+.sgfmtree-apple .treetext{padding:0; margin:0;border:1px #78b0e3 solid; background:#FFFFCC; height:16px; line-height:16px; font-size:12px; }
+.sgfmtree-apple .sgfmtree-icon{background-position:-72px -19px;}
+
+
+.sgfmtree-apple a.sgfmtree-checked .sgfmtree_checkbox{ background-position:-38px -19px; }
+.sgfmtree-apple a.sgfmtree-unchecked .sgfmtree_checkbox{ background-position:-2px -19px; }
+.sgfmtree-apple a.sgfmtree-undetermined .sgfmtree_checkbox{ background-position:-20px -19px; }
+.sgfmtree-apple a:hover.sgfmtree-checked .sgfmtree_checkbox{ background-position:-38px -37px; }
+.sgfmtree-apple a:hover.sgfmtree-unchecked .sgfmtree_checkbox{ background-position:-2px -37px; }
+.sgfmtree-apple a:hover.sgfmtree-undetermined .sgfmtree_checkbox{ background-position:-20px -37px; }
+
+.sgfmtree-apple .sgfmtree_user,.sgfmtree-apple .sgfmtree_set,.sgfmtree-apple .sgfmtree_statistics,.sgfmtree-apple .sgfmtree_money,.sgfmtree-apple .sgfmtree_gold{ 
+ background-image:url("../images/frame/ico.gif");}
+.sgfmtree-apple .sgfmtree_user{background-position:0 -19px;}
+.sgfmtree-apple .sgfmtree_set{background-position:-60px 0;}
+.sgfmtree-apple .sgfmtree_statistics{background-position:-280px -19px;}
+.sgfmtree-apple .sgfmtree_gold{background-position:-80px 0;}
+.sgfmtree-apple .sgfmtree_money{background-position:-360px -19px;}
+.sgfmtree-apple .sgfmtree_football,.sgfmtree-apple .sgfmtree_billiards,.sgfmtree-apple .sgfmtree_basketball,.sgfmtree-apple .sgfmtree_golf,.sgfmtree-apple .sgfmtree_rugby,.sgfmtree-apple .sgfmtree_badminton,.sgfmtree-apple .sgfmtree_leaguematch,.sgfmtree-apple .sgfmtree_match{
+     background-image:url("../images/frame/ball_ico.gif");}
+.sgfmtree-apple .sgfmtree_football{background-position:-19px 0;}
+.sgfmtree-apple .sgfmtree_billiards{background-position:0 0;}
+.sgfmtree-apple .sgfmtree_basketball{background-position:-36px 0;}
+.sgfmtree-apple .sgfmtree_golf{background-position:-54px 0;}
+.sgfmtree-apple .sgfmtree_rugby{background-position:0 -19px;}
+.sgfmtree-apple .sgfmtree_badminton{background-position:-19px -19px;}
+.sgfmtree-apple .sgfmtree_leaguematch{background-position:-54px -19px;}
+.sgfmtree-apple .sgfmtree_match{background-position:-36px -19px;}

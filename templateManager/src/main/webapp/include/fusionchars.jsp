@@ -1,0 +1,2 @@
+<script type="text/javascript" src="${ctx}/include/fusioncharts/jsclass/FusionCharts.js"></script>
+<script type="text/javascript" src="${ctx}/include/fusioncharts/jsclass/FusionChartsExportComponent.js"></script>
